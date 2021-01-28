@@ -26,7 +26,7 @@ class MainApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
         self.setupUi(self)
         self.win1_button.clicked.connect(self.winner1)
         self.win2_button.clicked.connect(self.winner2)
-        # self.
+        self.exit_btn.clicked.connect(self.sleeping)
 
     def naming(self, player1, player2):
         """ Change names of players
@@ -58,6 +58,20 @@ class MainApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
             self.win2.setText(str(self.player2_scope))
         else:
             self.win2.setText(str(self.player2_scope)[1:])
+
+    @staticmethod
+    def sleeping():
+        winners.show()
+        AppWin.win_def(winners)
+        try:
+            my_MainWindow.destroy()
+        except NameError:
+            pass
+        sleep(7)
+        try:
+            winners.destroy()
+        except NameError:
+            pass
 
 
 # noinspection PyUnresolvedReferences
@@ -99,28 +113,24 @@ class AppWin(QtWidgets.QMainWindow, end_winner_design.Ui_end_winner):
         super().__init__()
         self.setupUi(self)
 
-    @staticmethod
-    def sleeping():
-        winners.show()
-        win = self.win()
-        my_MainWindow.destroy()
-        sleep(7)
-        try:
-            winners.destroy()
-        except NameError:
-            pass
-
-    def win(self):
+    def win_def(self):
         point1 = MainApp.player1_scope
         point2 = MainApp.player2_scope
+        if point1 > point2:
+            self.end_of_win.setText(MainApp.name1)
+        elif point2 > point1:
+            self.end_of_win.setText(MainApp.name2)
+        else:
+            self.end_of_win.setText('Дружба')
+
 
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication()
+    winners = AppWin()
+    winners.hide()
     my_MainWindow = MainApp()
     my_MainWindow.show()
     players = FirstApp()
     players.show()
-    winners = AppWin()
-    winners.hide()
     sys.exit(app.exec_())

@@ -166,7 +166,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="exit_btn">
     <property name="geometry">
      <rect>
       <x>692</x>

@@ -108,9 +108,6 @@
    </property>
   </widget>
   <widget class="QPushButton" name="compile_names_button">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
    <property name="geometry">
     <rect>
      <x>113</x>
