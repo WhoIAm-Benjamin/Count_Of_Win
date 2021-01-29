@@ -59,12 +59,11 @@ class MainApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
         else:
             self.win2.setText(str(self.player2_scope)[1:])
 
-    @staticmethod
-    def sleeping():
+    def sleeping(self):
         winners.show()
         AppWin.win_def(winners)
         try:
-            my_MainWindow.destroy()
+            self.destroy()
         except NameError:
             pass
         sleep(7)
