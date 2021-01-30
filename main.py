@@ -19,9 +19,6 @@ class MainApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
     player2_scope = 0
 
     def __init__(self):
-        """ Initialization interface this window
-        :param self: object of app;
-        """
         super().__init__()
         self.setupUi(self)
         self.win1_button.clicked.connect(self.winner1)
@@ -60,17 +57,15 @@ class MainApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
             self.win2.setText(str(self.player2_scope)[1:])
 
     def sleeping(self):
+        print('CLASS')
         winners.show()
-        AppWin.win_def(winners)
+        winners.win_def()
         try:
             self.destroy()
         except NameError:
             pass
-        sleep(7)
-        try:
-            winners.destroy()
-        except NameError:
-            pass
+        # sleep(7)
+        winners.destroy()
 
 
 # noinspection PyUnresolvedReferences
@@ -80,17 +75,9 @@ class FirstApp(QtWidgets.QWidget, design_players.Ui_Players):
     :param design_players.Ui_Players: design for that;
     """
     def __init__(self):
-        """ Initialization interface this window
-        :param self: object of app;
-        """
         super().__init__()
         self.setupUi(self)
         self.compile_names_button.clicked.connect(self.compile)
-
-    # def keyPressEvent(self, event):
-    #     print(event.__eq__)
-    #     if event == 'alt':
-    #          print('SUPER')
 
     def compile(self):
         """ Definition for compile names of players and translated them for MainWindow
@@ -104,11 +91,8 @@ class FirstApp(QtWidgets.QWidget, design_players.Ui_Players):
 
 
 # noinspection PyUnresolvedReferences
-class AppWin(QtWidgets.QMainWindow, end_winner_design.Ui_end_winner):
+class AppWin(QtWidgets.QWidget, end_winner_design.Ui_end_winner):
     def __init__(self):
-        """ Initialization interface this window
-        :param self: object of app;
-        """
         super().__init__()
         self.setupUi(self)
 
@@ -127,7 +111,6 @@ class AppWin(QtWidgets.QMainWindow, end_winner_design.Ui_end_winner):
 if __name__ == '__main__':
     app = QtWidgets.QApplication()
     winners = AppWin()
-    winners.hide()
     my_MainWindow = MainApp()
     my_MainWindow.show()
     players = FirstApp()

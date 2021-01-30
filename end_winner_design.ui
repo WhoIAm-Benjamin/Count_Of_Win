@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>end_winner</class>
  <widget class="QWidget" name="end_winner">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -55,7 +58,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Уля</string>
+    <string/>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
