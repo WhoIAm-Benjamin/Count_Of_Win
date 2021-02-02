@@ -166,22 +166,6 @@
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="exit_btn">
-    <property name="geometry">
-     <rect>
-      <x>692</x>
-      <y>378</y>
-      <width>70</width>
-      <height>60</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(161, 134, 0);</string>
-    </property>
-    <property name="text">
-     <string>Выход</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="name1">
     <property name="geometry">
      <rect>
@@ -222,6 +206,22 @@
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="exit_btn">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>390</y>
+      <width>74</width>
+      <height>53</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(190, 165, 0);</string>
+    </property>
+    <property name="text">
+     <string>Выход</string>
     </property>
    </widget>
   </widget>

@@ -3,12 +3,12 @@
 import sys
 from time import sleep
 # import keyboard
-
 import design
 import design_players
 import end_winner_design
 from PySide2 import QtWidgets  # , QtCore, QtGui
 
+i = 0
 
 class MainApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
     """ Class of MainWindow
@@ -56,16 +56,17 @@ class MainApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
         else:
             self.win2.setText(str(self.player2_scope)[1:])
 
-    def sleeping(self):
-        print('CLASS')
+    @staticmethod
+    def sleeping():
+        global i
         winners.show()
         winners.win_def()
         try:
-            self.destroy()
+            my_MainWindow.destroy()
         except NameError:
             pass
-        # sleep(7)
-        winners.destroy()
+        i += 1
+        # sys.exit(app.exec_())
 
 
 # noinspection PyUnresolvedReferences
@@ -111,6 +112,7 @@ class AppWin(QtWidgets.QWidget, end_winner_design.Ui_end_winner):
 if __name__ == '__main__':
     app = QtWidgets.QApplication()
     winners = AppWin()
+    winners.hide()
     my_MainWindow = MainApp()
     my_MainWindow.show()
     players = FirstApp()
